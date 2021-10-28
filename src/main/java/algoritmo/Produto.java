@@ -13,16 +13,19 @@ public class Produto {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public double getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
+    public static int buscaMenor(Produto[] produtos) {
+        int maisBarato = 0;
 
+        for (int atual = 0; atual <= produtos.length - 1; atual++) {
+            if (produtos[atual].getPreco() < produtos[maisBarato].getPreco()) {
+                maisBarato = atual;
+            }
+        }
+
+        return maisBarato;
+    }
 }

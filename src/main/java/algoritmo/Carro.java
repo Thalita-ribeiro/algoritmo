@@ -1,7 +1,10 @@
 package algoritmo;
 
+import static algoritmo.Produto.buscaMenor;
+
 public class Carro {
     public static void main(String[] args) {
+
         Produto produtos[] = {
                 new Produto("Lamborghini", 1000000),
                 new Produto("Jipe", 46000),
@@ -15,16 +18,5 @@ public class Carro {
         System.out.println("O carro " + produtos[maisBarato].getNome()
                 + " é o mais barato, e custa "
                 + produtos[maisBarato].getPreco());
-    }
-
-    public static int buscaMenor(Produto[] produtos) {
-        int maisBarato = 0;
-
-        for (int atual = 0; atual <= produtos.length - 1; atual++) {
-            if (produtos[atual].getPreco() < produtos[maisBarato].getPreco()) {
-                maisBarato = atual;
-            }
-        }
-        return maisBarato;
     }
 }

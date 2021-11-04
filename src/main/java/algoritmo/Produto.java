@@ -1,6 +1,6 @@
 package algoritmo;
 
-public class Produto {
+public final class Produto {
     private String nome;
     private double preco;
 
@@ -17,7 +17,7 @@ public class Produto {
         return preco;
     }
 
-    public static int buscaMenor(Produto[] produtos) {
+    public static int buscaMenorValor(Produto[] produtos) {
         int maisBarato = 0;
 
         for (int atual = 0; atual <= produtos.length - 1; atual++) {
@@ -25,7 +25,6 @@ public class Produto {
                 maisBarato = atual;
             }
         }
-
         return maisBarato;
     }
 }

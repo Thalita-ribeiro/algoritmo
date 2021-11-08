@@ -1,6 +1,6 @@
 package algoritmo;
 
-import static algoritmo.Produto.buscaMenor;
+import static algoritmo.Produto.ordena;
 
 public class Carro {
     public static void main(String[] args) {
@@ -11,20 +11,16 @@ public class Carro {
                     new Produto("Jipe", 46000),
                     new Produto("Brasília", 16000),
                     new Produto("Smart", 46000),
-                    null,
                     new Produto("Fusca", 17000)
             };
 
-            int maisBarato = buscaMenor(produtos);
+            ordena(produtos, produtos.length);
 
-            System.out.println(maisBarato);
-            System.out.println("O carro " + produtos[maisBarato].getNome()
-                    + " é o mais barato, e custa "
-                    + produtos[maisBarato].getPreco());
+            for(Produto produto : produtos) {
+                System.out.println(produto.getNome() + " custa " + produto.getPreco()); }
 
         } catch (NullPointerException exception) {
             System.out.println("Seu array está vazio ");
         }
     }
 }
-

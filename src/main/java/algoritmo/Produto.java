@@ -17,14 +17,30 @@ public final class Produto {
         return preco;
     }
 
-    public static int buscaMenorValor(Produto[] produtos) {
-        int maisBarato = 0;
+    private static int buscaMenor(Produto[] produtos, int inicio, int termino) {
 
-        for (int atual = 0; atual <= produtos.length - 1; atual++) {
+        int maisBarato = inicio;
+
+        for (int atual = inicio; atual < termino; atual++) {
+
             if (produtos[atual].getPreco() < produtos[maisBarato].getPreco()) {
+
                 maisBarato = atual;
             }
         }
+
         return maisBarato;
+    }
+
+    public static void ordena(Produto[] produtos, int quantidadeDeElementos) {
+        for (int atual = 0; atual < produtos.length; atual++) {
+
+            int menor = buscaMenor(produtos, atual, produtos.length);
+
+            Produto produtoAtual = produtos[atual];
+            Produto produtoMenor = produtos[menor];
+            produtos[atual] = produtoMenor;
+            produtos[menor] = produtoAtual;
+        }
     }
 }
